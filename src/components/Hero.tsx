@@ -14,7 +14,7 @@ const WhatsAppIcon = ({ className = "w-5 h-5" }: { className?: string }) => (
 );
 
 // Premium, realistic laundry and garment photography from Unsplash
-const heroImageUrl = "https://images.unsplash.com/photo-1517677208171-0bc6725a3e60?auto=format&fit=crop&q=80&w=800";
+const heroImageUrl = "https://lh3.googleusercontent.com/gps-cs-s/APNQkAGJg-ZUH4q-OcgbukUFRgLLNZBldqjzqLK2raPsEhTCvmiCASo7eNJmrTQozzJKPg_GD3T1ifyuthr9TOhHPottlmgsDKeFfEJVoevp2PdG44li0mqkG6IAzz7BWmG4c-182Av5=s1360-w1360-h1020-rw";
 
 interface HeroProps {
   onScheduleClick: () => void;
