@@ -1,0 +1,238 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap');
+@import "tailwindcss";
+
+@variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Outfit", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+
+  --color-primary-pink: #FF5CA8;
+  --color-deep-navy: #0F172A;
+  --color-light-bg: #F8FAFC;
+  --color-muted-gray: #64748B;
+  
+  /* Dark mode specific brand colors */
+  --color-dark-bg: #0B1120;
+  --color-dark-surface: #111827;
+  --color-dark-card: #172033;
+}
+
+@layer utilities {
+  .text-glow-pink {
+    text-shadow: 0 0 12px rgba(255, 92, 168, 0.4);
+  }
+  .box-shadow-premium {
+    box-shadow: 0 10px 40px -10px rgba(15, 23, 42, 0.05), 0 1px 3px rgba(15, 23, 42, 0.01);
+  }
+  .glassmorphism {
+    background: rgba(255, 255, 255, 0.75);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+  .glassmorphism-dark {
+    background: rgba(11, 17, 32, 0.8);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+  }
+  
+  /* Realistic, high-visibility GPU-accelerated keyframes for water bubble effects with wobbling and popping in the footer */
+
+  @keyframes float-footer-up-1 {
+    0% {
+      transform: translateY(60px) translateX(0) scale(0.7, 0.85);
+      opacity: 0;
+    }
+    15% {
+      opacity: 0.8;
+      transform: translateY(-100px) translateX(15px) scale(0.85, 0.7);
+    }
+    45% {
+      transform: translateY(-240px) translateX(-15px) scale(0.72, 0.88);
+      opacity: 0.75;
+    }
+    75% {
+      transform: translateY(-380px) translateX(10px) scale(0.85, 0.75);
+      opacity: 0.55;
+    }
+    93% {
+      transform: translateY(-440px) translateX(-5px) scale(1.3, 1.3);
+      opacity: 0.85;
+    }
+    100% {
+      transform: translateY(-455px) translateX(-5px) scale(0.1, 0.1);
+      opacity: 0;
+    }
+  }
+
+  @keyframes float-footer-up-2 {
+    0% {
+      transform: translateY(60px) translateX(0) scale(0.95, 0.8);
+      opacity: 0;
+    }
+    18% {
+      opacity: 0.75;
+      transform: translateY(-110px) translateX(-20px) scale(0.82, 0.95);
+    }
+    50% {
+      transform: translateY(-260px) translateX(20px) scale(0.95, 0.82);
+      opacity: 0.7;
+    }
+    80% {
+      transform: translateY(-390px) translateX(-10px) scale(0.85, 0.9);
+      opacity: 0.5;
+    }
+    94% {
+      transform: translateY(-435px) translateX(5px) scale(1.35, 1.35);
+      opacity: 0.85;
+    }
+    100% {
+      transform: translateY(-450px) translateX(5px) scale(0.1, 0.1);
+      opacity: 0;
+    }
+  }
+
+  @keyframes float-footer-up-3 {
+    0% {
+      transform: translateY(60px) translateX(-10px) scale(0.65, 0.75);
+      opacity: 0;
+    }
+    15% {
+      opacity: 0.82;
+      transform: translateY(-90px) translateX(12px) scale(0.75, 0.65);
+    }
+    48% {
+      transform: translateY(-230px) translateX(-12px) scale(0.65, 0.78);
+      opacity: 0.75;
+    }
+    78% {
+      transform: translateY(-370px) translateX(8px) scale(0.78, 0.7);
+      opacity: 0.5;
+    }
+    92% {
+      transform: translateY(-430px) translateX(-2px) scale(1.25, 1.25);
+      opacity: 0.8;
+    }
+    100% {
+      transform: translateY(-445px) translateX(-2px) scale(0.1, 0.1);
+      opacity: 0;
+    }
+  }
+
+  @keyframes bubble-sway {
+    0%, 100% {
+      transform: translateY(0) translateX(0) scale(1);
+    }
+    33% {
+      transform: translateY(-25px) translateX(15px) scale(1.05);
+    }
+    66% {
+      transform: translateY(10px) translateX(-20px) scale(0.95);
+    }
+  }
+
+  /* Highly performant and responsive class assignments */
+
+  .animate-bubble-footer-1 {
+    animation: float-footer-up-1 9s infinite linear;
+    will-change: transform, opacity;
+  }
+
+  .animate-bubble-footer-2 {
+    animation: float-footer-up-2 12s infinite linear;
+    will-change: transform, opacity;
+  }
+
+  .animate-bubble-footer-3 {
+    animation: float-footer-up-3 10s infinite linear;
+    will-change: transform, opacity;
+  }
+
+  .animate-bubble-sway-slow {
+    animation: bubble-sway 16s infinite ease-in-out;
+    will-change: transform;
+  }
+
+  .animate-bubble-sway-medium {
+    animation: bubble-sway 10s infinite ease-in-out;
+    will-change: transform;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+  font-family: var(--font-sans);
+  -webkit-overflow-scrolling: touch; /* Kinetic momentum scrolling on iOS */
+}
+
+/* Safari / Mobile iOS Dynamic Viewport & Height Optimizations */
+@supports (min-height: 100dvh) {
+  .min-h-screen {
+    min-height: 100dvh !important;
+  }
+}
+@supports (height: 100dvh) {
+  .h-screen {
+    height: 100dvh !important;
+  }
+}
+@supports (min-height: 85svh) {
+  #home {
+    min-height: 85svh !important;
+  }
+}
+@supports (min-height: 85dvh) {
+  #home {
+    min-height: 85dvh !important;
+  }
+}
+
+/* Explicit fallback support for -webkit-backdrop-filter across all standard Tailwind backdrop-blur utilities on iOS WebKit */
+.backdrop-blur-sm { -webkit-backdrop-filter: blur(4px) !important; backdrop-filter: blur(4px) !important; }
+.backdrop-blur { -webkit-backdrop-filter: blur(8px) !important; backdrop-filter: blur(8px) !important; }
+.backdrop-blur-md { -webkit-backdrop-filter: blur(12px) !important; backdrop-filter: blur(12px) !important; }
+.backdrop-blur-lg { -webkit-backdrop-filter: blur(16px) !important; backdrop-filter: blur(16px) !important; }
+.backdrop-blur-xl { -webkit-backdrop-filter: blur(24px) !important; backdrop-filter: blur(24px) !important; }
+.backdrop-blur-2xl { -webkit-backdrop-filter: blur(40px) !important; backdrop-filter: blur(40px) !important; }
+.backdrop-blur-3xl { -webkit-backdrop-filter: blur(64px) !important; backdrop-filter: blur(64px) !important; }
+
+/* Force iOS GPU Core hardware compositing for floating bubble layer elements to avoid redraw latency */
+.animate-bubble-footer-1,
+.animate-bubble-footer-2,
+.animate-bubble-footer-3 {
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-perspective: 1000px;
+  perspective: 1000px;
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  transform: translate3d(0, 0, 0);
+}
+
+/* Custom premium scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #F8FAFC;
+}
+.dark ::-webkit-scrollbar-track {
+  background: #0B1120;
+}
+::-webkit-scrollbar-thumb {
+  background: #E2E8F0;
+  border-radius: 9999px;
+  border: 2px solid #F8FAFC;
+}
+.dark ::-webkit-scrollbar-thumb {
+  background: #1F2937;
+  border-radius: 9999px;
+  border: 2px solid #0B1120;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #FF5CA8;
+}
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: #FF5CA8;
+}

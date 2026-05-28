@@ -1,0 +1,8 @@
+{
+  "name": "The Pink Laundry & Dry Cleaning",
+  "description": "World-class ultra modern premium laundry \u0026 dry cleaning service in Patna, Bihar.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
